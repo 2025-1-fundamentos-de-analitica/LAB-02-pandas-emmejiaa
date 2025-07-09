@@ -5,6 +5,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
 
 def pregunta_03():
     """
@@ -21,3 +22,16 @@ def pregunta_03():
     Name: count, dtype: int64
 
     """
+    
+    df = pd.read_csv('files/input/tbl0.tsv', sep='\t')
+
+    # Contar registros por cada valor único en la columna c1
+
+    resultado = df['c1'].value_counts().sort_index()
+    
+    
+    return resultado
+
+
+if __name__ == "__main__":
+    print(pregunta_03())
